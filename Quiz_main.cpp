@@ -7,14 +7,14 @@ void MenuAuthorize(string& Login)
 	int ChoiceUserAuthorize;
 	while (flag) {
 
-		cout << "Выберите действие: \n";
-		cout << "1 - Вход\n" << "2 - Регистрация\n";
+		cout << "Enter choice: \n";
+		cout << "1 - Login\n" << "2 - Register\n";
 		cin >> ChoiceUserAuthorize;
 
 		switch (ChoiceUserAuthorize)
 		{
 		default:
-			cout << "Действие не существует\n";
+			cout << "Choice not exists\n";
 			break;
 		case 1:
 		{
@@ -24,7 +24,7 @@ void MenuAuthorize(string& Login)
 			{
 				break;
 			}
-			cout << "Вход выполнен от лица " << Login << "\n";
+			cout << "Login ass " << Login << "\n";
 			flag = 0;
 		}
 		case 2:
@@ -40,7 +40,7 @@ void MenuAuthorize(string& Login)
 void main(void) {
 
 	setlocale(LC_ALL, "rus");
-	cout << "Добро пожаловать на викторину 'У Богдана'!\n";
+	cout << "Welc4m to the c4m zone\n";
 	string Login;
 	MenuAuthorize(Login);
 }
