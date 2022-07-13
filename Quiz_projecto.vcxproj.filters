@@ -18,16 +18,21 @@
     <ClCompile Include="Quiz_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserAuthorize.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="parsing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Users.txt">
+    <ClInclude Include="UserAuthorize.h">
       <Filter>Source Files</Filter>
-    </Text>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Parsing.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Users.csv">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
