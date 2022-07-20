@@ -1,0 +1,3 @@
+Who played the main male role in the movie Titanic?;1;Leonardo DiCaprio;Denzel Washington;Mark Wahlberg;Matthew McConaughey
+In which movie did the main character become an Apple shareholder?;2;Forrest Gump;Godfather;Sweet November;Back to the Future
+What secret was revealed by the protagonist of the movie "The Truman Show"?4;The whole world was watching him;His father is an alien;He is the chosen one who will save the whole world;His son is gay

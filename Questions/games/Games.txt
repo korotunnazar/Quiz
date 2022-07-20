@@ -1,0 +1,3 @@
+How many bosses are there in Minecraft?;1;Three;Two;One;Four
+What profession of residents does not exist?;2;Fisherman;Leatherworker;Cook;Churchman
+How many mobs are summoned only by building a special totem?4;Two;One;Three;Four

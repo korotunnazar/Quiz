@@ -1,6 +1,7 @@
 #include <vector>
 #include "UserAuthorize.h"
-
+#include "Game.h"
+#include "IntegrityCheck.h"
 void MenuAuthorize(string& Login, bool &Logged)
 {
 	bool Flag = true;
@@ -42,10 +43,15 @@ void MenuAuthorize(string& Login, bool &Logged)
 
 void main(void) 
 {
-
-	cout << "Welc4m to the c4m zone\n";
-	string Login;
-	bool Logged;
-	MenuAuthorize(Login, Logged);
-
+	if (CheckFiles())
+	{
+		cout << "Welc4m to the c4m zone\n";
+		string Login;
+		bool Logged;
+		MenuAuthorize(Login, Logged);
+		if (Logged)
+		{
+			StartGame();
+		}
+	}
 }

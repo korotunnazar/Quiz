@@ -1,0 +1,3 @@
+What is the name of the group consisting of five musicians?;1;Quintet;Quartet;Octet;Athlete
+What musical sign raises a note by a semitone up?;2;Sharp;Flat;Natural;There is no such
+What is "New Age" in music?;4;Style;Group;Festival name;Musical instrument company

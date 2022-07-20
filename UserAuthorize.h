@@ -1,6 +1,6 @@
 #include <iostream> // cin && cout								| input output
 #include <string> // string										| storing text
-#include <unordered_map> // hash<string>hasher;					| hashing password
+#include <unordered_map> // hash<string>hasher;					| hashing Password
 #include <fstream> //ifstream && ofstream && open() && close()  | file operations
 #include <sstream> //stringstream								| used for file operations too
 
@@ -10,8 +10,8 @@ using namespace std;
 //inprogram db
 struct			LocDb
 {
-	string		login;
-	string		password;
+	string		Login;
+	string		Password;
 };
 
 namespace ForFile
@@ -46,11 +46,11 @@ namespace ForFile
 			stringstream database(Line);
 
 
-			getline(database, DB[LinePos].login, ';');
+			getline(database, DB[LinePos].Login, ';');
 
-			getline(database, DB[LinePos].password, ';');
+			getline(database, DB[LinePos].Password, ';');
 
-			/*cout << "Login : " << DB[LinePos].login << "\nPassoword : " << DB[LinePos].password << "\n";*/ //debug
+			/*cout << "Login : " << DB[LinePos].Login << "\nPassoword : " << DB[LinePos].Password << "\n";*/ //debug
 
 			LinePos++;
 		}
@@ -73,19 +73,19 @@ namespace ForFile
 namespace Check
 {
 	//"LoginCheck()" called for checking if user used allowed symbols for his nickname returns(True | False)
-	bool			LoginCheck(string login)
+	bool			LoginCheck(string Login)
 	{
 		string		AllowedSymbols = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789_-";
 		int			LoginPos = 0;
 
-		while (LoginPos < login.length())
+		while (LoginPos < Login.length())
 		{
 			bool		ok = 0;
 			int			SymbolPos = 0;
 
 			while (SymbolPos < AllowedSymbols.length())
 			{
-				if (login[LoginPos] == AllowedSymbols[SymbolPos++])
+				if (Login[LoginPos] == AllowedSymbols[SymbolPos++])
 				{
 					ok = 1;
 					break;
@@ -101,20 +101,20 @@ namespace Check
 
 	}
 
-	//"LoginCheck()" called for checking if user used allowed symbols for his password returns(True | False)
-	bool			PasswordCheck(string password)
+	//"LoginCheck()" called for checking if user used allowed symbols for his Password returns(True | False)
+	bool			PasswordCheck(string Password)
 	{
 		string		AllowedSymbols = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789!@#$%^&*()_-+={}[]|/<>,.?";
 		int			PasswordPos = 0;
 
-		while (PasswordPos < password.length())
+		while (PasswordPos < Password.length())
 		{
 			bool		ok = 0;
 			int			SymbolPos = 0;
 
 			while (SymbolPos < AllowedSymbols.length())
 			{
-				if (password[PasswordPos] == AllowedSymbols[SymbolPos++])
+				if (Password[PasswordPos] == AllowedSymbols[SymbolPos++])
 				{
 					ok = 1;
 					break;
@@ -129,12 +129,12 @@ namespace Check
 		return 1;
 	}
 
-	//"CheckIfExists()" called for checking if user trying to login in existing account returns(True | False)
-	bool			CheckIfExists(LocDb* DB, int _SizeOfDb, string login)
+	//"CheckIfExists()" called for checking if user trying to Login in existing account returns(True | False)
+	bool			CheckIfExists(LocDb* DB, int _SizeOfDb, string Login)
 	{
 		for (int i = 0; i < _SizeOfDb; i++)
 		{
-			if (login == DB[i].login)
+			if (Login == DB[i].Login)
 			{
 				return 1;
 			}
@@ -157,58 +157,61 @@ namespace Register
 	void			SignUp()
 	{
 		using namespace Check;
+		cin.ignore();
 		cout << "Register Account\n"; // just for clarification
 
-		string		login;
-		Input(login, "Input Login (A-Z, a-z, 0-9, _- ): ");
+		string		Login;
+		Input(Login, "Input Login (A-Z, a-z, 0-9, _- ): ");
 
 		LocDb* DB = nullptr;
 		int			_SizeOfDb = 0;
 
 		ForFile::GetFromFile(DB, _SizeOfDb);
-		while (LoginCheck(login) != 1 || CheckIfExists(DB, _SizeOfDb, login) == 1)
+		while (LoginCheck(Login) != 1 || CheckIfExists(DB, _SizeOfDb, Login) == 1)
 		{
 			cout << "\nUnallowed Symbol\tOr User Already exists\n";
-			Input(login, "Input Login (A-Z, a-z, 0-9, _- ): ");
+			Input(Login, "Input Login (A-Z, a-z, 0-9, _- ): ");
 		}
 
+		cin.ignore();
+		string		Password;
+		Input(Password, "Input Password (A-Z, a-z, 0-9, all symbols) : ");
 
-		string		password;
-		Input(password, "Input Password (A-Z, a-z, 0-9, all symbols) : ");
-
-		while (PasswordCheck(password) != 1)
+		while (PasswordCheck(Password) != 1)
 		{
 			cout << "Incorrect Symbol In Passoword\n";
-			Input(password, "Input Password (A-Z, a-z, 0-9, all symbols) : ");
+			Input(Password, "Input Password (A-Z, a-z, 0-9, all symbols) : ");
 		}
 
 		hash<string>hasher;
 
-		size_t		PasswordHash = hasher(password);
-
+		if (Login != "" && Password != "")
+		{ 
+			size_t		PasswordHash = hasher(Password);
+			ForFile::PutInFile(Login, PasswordHash);
+		}
 
 
 
 		/*cout << "Password hash : " << PasswordHash;*/ //debug
 
-		ForFile::PutInFile(login, PasswordHash);
 	}
 }
 
 
 namespace Login
 {
-	//"HashCheck()" called for checking if user have inputed right password for account returns(True | False)
-	bool			HashCheck(string login, string password, LocDb* DB, int _SizeOfDb)
+	//"HashCheck()" called for checking if user have inputed right Password for account returns(True | False)
+	bool			HashCheck(string Login, string Password, LocDb* DB, int _SizeOfDb)
 	{
 		for (int i = 0; i < _SizeOfDb; i++)
 		{
-			if (DB[i].login == login)
+			if (DB[i].Login == Login)
 			{
 				hash<string>hasher;
-				size_t			hash1 = hasher(password);
+				size_t			hash1 = hasher(Password);
 				size_t			hash2;
-				stringstream	hash(DB[i].password);
+				stringstream	hash(DB[i].Password);
 
 				hash >> hash2;
 
@@ -227,36 +230,37 @@ namespace Login
 	string			SignIn()
 	{
 		using namespace Check;
+		cin.ignore();
 		cout << "Sign Into Account\n";  // just for clarification
 
-		string		login;
-		Input(login, "Input Login (A-Z, a-z, 0-9, _- ): ");
+		string		Login;
+		Input(Login, "Input Login (A-Z, a-z, 0-9, _- ): ");
 
-		while (LoginCheck(login) != 1)
+		while (LoginCheck(Login) != 1)
 		{
 			cout << "\nIncorrect Symbol In Login (A-Z, a-z, 0-9, _-) : ";
-			Input(login, "Input Login (A-Z, a-z, 0-9, _- ): ");
+			Input(Login, "Input Login (A-Z, a-z, 0-9, _- ): ");
 		}
 
 		LocDb* DB = nullptr;
 		int			_SizeOfDb = 0;
-
+		cin.ignore();
 		ForFile::GetFromFile(DB, _SizeOfDb);
-		if (CheckIfExists(DB, _SizeOfDb, login))
+		if (CheckIfExists(DB, _SizeOfDb, Login))
 		{
-			string password;
-			Input(password, "Input Password (A-Z, a-z, 0-9, all symbols) : ");
-			while (PasswordCheck(password) != 1)
+			string Password;
+			Input(Password, "Input Password (A-Z, a-z, 0-9, all symbols) : ");
+			while (PasswordCheck(Password) != 1)
 			{
 				cout << "Incorrect Symbol In Passoword : ";
-				Input(password, "Input Password (A-Z, a-z, 0-9, all symbols) : ");
+				Input(Password, "Input Password (A-Z, a-z, 0-9, all symbols) : ");
 			}
 
 			hash<string>hasher;
-			size_t		PasswordHash = hasher(password);
-			if (HashCheck(login, password, DB, _SizeOfDb))
+			size_t		PasswordHash = hasher(Password);
+			if (HashCheck(Login, Password, DB, _SizeOfDb))
 			{
-				return login;
+				return Login;
 			}
 		}
 

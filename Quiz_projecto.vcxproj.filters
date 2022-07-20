@@ -29,6 +29,9 @@
     <ClInclude Include="Parsing.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="IntegrityCheck.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Users.csv">
