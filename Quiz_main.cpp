@@ -1,11 +1,11 @@
 #include <vector>
 #include "UserAuthorize.h"
 
-void MenuAuthorize(string& Login)
+void MenuAuthorize(string& Login, bool &Logged)
 {
-	bool flag = true;
+	bool Flag = true;
 	int ChoiceUserAuthorize;
-	while (flag) {
+	while (Flag) {
 
 		cout << "Enter choice: \n";
 		cout << "1 - Login\n" << "2 - Register\n";
@@ -13,34 +13,39 @@ void MenuAuthorize(string& Login)
 
 		switch (ChoiceUserAuthorize)
 		{
-		default:
-			cout << "Choice not exists\n";
-			break;
-		case 1:
-		{
-			using namespace Login;
-			Login = SignIn();
-			if (Login == "Not Exists")
+			default:
+				cout << "Choice not exists\n";
+				break;
+			case 1:
 			{
+				using namespace Login;
+				Login = SignIn();
+				if (Login == "Not Exists")
+				{
+					cout << "User not exist\n";
+					break;
+				}
+				cout << "Login ass " << Login << "\n";
+				Logged = 1;
+				Flag = 0;
 				break;
 			}
-			cout << "Login ass " << Login << "\n";
-			flag = 0;
-		}
-		case 2:
-		{
-			using namespace Register;
-			SignUp();
-			break;
-		}
+			case 2:
+			{
+				using namespace Register;
+				SignUp();
+				break;
+			}
 		}
 	}
 }
 
-void main(void) {
+void main(void) 
+{
 
-	setlocale(LC_ALL, "rus");
 	cout << "Welc4m to the c4m zone\n";
 	string Login;
-	MenuAuthorize(Login);
+	bool Logged;
+	MenuAuthorize(Login, Logged);
+
 }

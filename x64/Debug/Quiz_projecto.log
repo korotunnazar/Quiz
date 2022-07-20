@@ -1,0 +1,3 @@
+﻿  Quiz_main.cpp
+Q:\cpp\QUIZREPOS\Quiz_main.cpp(44,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  Quiz_projecto.vcxproj -> Q:\cpp\QUIZREPOS\x64\Debug\Quiz_projecto.exe
