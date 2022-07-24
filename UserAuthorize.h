@@ -146,8 +146,9 @@ namespace Check
 
 void Input(string& INP, string UI)
 {
-	cin.ignore();
+	
 	cout << UI;
+	cin.ignore();
 	getline(cin, INP);
 }
 
@@ -244,8 +245,9 @@ namespace Login
 
 		LocDb* DB = nullptr;
 		int			_SizeOfDb = 0;
-		cin.ignore();
+	
 		ForFile::GetFromFile(DB, _SizeOfDb);
+		cin.ignore();
 		if (CheckIfExists(DB, _SizeOfDb, Login))
 		{
 			string Password;
