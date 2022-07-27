@@ -41,8 +41,8 @@ void StartGame()
 	{
 		Question->GetQuestion(Question, QuestionPos);
 		Question->GetAnswers(Question, QuestionPos);
-		getline(cin, Answer);
-		if (Answer == Question->GetRightAnswer(Question, QuestionPos))
+		getline(cin, Answer); // bug : this line didn't called in code
+		if (Answer != "" && Answer == Question->GetRightAnswer(Question, QuestionPos))
 		{
 			Score+= 1 * Question->GetQuotient(Question, QuestionPos);
 		}

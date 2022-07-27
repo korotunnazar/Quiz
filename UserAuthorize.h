@@ -148,7 +148,7 @@ void Input(string& INP, string UI)
 {
 	
 	cout << UI;
-	cin.ignore();
+	/*cin.ignore();*/
 	getline(cin, INP);
 }
 

@@ -26,7 +26,7 @@ void MenuAuthorize(string& Login, bool &Logged)
 					cout << "User not exist\n";
 					break;
 				}
-				cout << "Login ass " << Login << "\n";
+				cout << "Login as " << Login << "\n";
 				Logged = 1;
 				Flag = 0;
 				break;

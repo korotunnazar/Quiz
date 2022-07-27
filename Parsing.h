@@ -5,31 +5,33 @@
 
 using namespace std;
 
-int				CountLines(string fname)
+int				CountLines(string fname) // to count all lines of questions
 {
-	ifstream	file;
-	int			_SizeOfDb = 0;
-	string		c = "";
-	file.open(fname);
-	while (getline(file, c))
+	ifstream	file; // read stream
+	int			_SizeOfDb = 0; // counter of questions
+	string		c = ""; // addition to count lines
+	file.open(fname); // open file in read mode
+	while (getline(file, c)) // count questions
 	{
-		_SizeOfDb++;
+		_SizeOfDb++; // increment
 	}
-	return _SizeOfDb;
+	return _SizeOfDb; // return how many questions
 }
 
 class Questions
 {
 	private:
-		string Question;
+		string Question; 
 		string Answers[4];
 		string RightAnswer;
 		int Quotient;
 	public:
-		void GetQuestion(Questions* Question, int Pos)
+		// getter for question
+		void GetQuestion(Questions* Question, int Pos) 
 		{
 			cout << Question[Pos].Question << "\n";
 		}
+		// getter for answers
 		void GetAnswers(Questions* Question, int Pos)
 		{
 			for (int i = 0; i < 4; i++)
@@ -37,14 +39,17 @@ class Questions
 				cout << Question[Pos].Answers[i] << "\n";
 			}
 		}
+		// getter for right answer
 		string GetRightAnswer(Questions* Question, int Pos)
 		{
 			return Question[Pos].RightAnswer;
 		}
+		// getter for quotient
 		int GetQuotient(Questions* Question, int Pos)
 		{
 			return Question[Pos].Quotient;
 		}
+		// getter for all class fields
 		void Debug(Questions* Question, int Pos)
 		{
 			cout << Question[Pos].Question << "\n";
@@ -54,18 +59,27 @@ class Questions
 				cout << Question[Pos].Answers[i] << "\n";
 			}
 		}
+		// read file
 		int GetQuestion(string CategoryQuestionsFile,string CategoryAnswersFile, Questions *&Question)
 		{
-			
+			// file read stream
 			ifstream	QuestionsFile;
+			// open file in read mode
 			QuestionsFile.open(CategoryQuestionsFile);
+			// count how many questions
 			int Size = CountLines(CategoryQuestionsFile);
 
+			// question counter
 			int			LinePos = 0;
+			// to get question
 			string		LineQuestions = "";
+			// allocate class array
 			Question = new Questions[Size];
+			// file read stream
 			ifstream	AnswersFile;
+			// open file in read mode
 			AnswersFile.open(CategoryAnswersFile);
+			// to get answer
 			string		LineAnswers = "";
 			
 			while ((getline(QuestionsFile, LineQuestions)) && (getline(AnswersFile, LineAnswers)))
@@ -77,7 +91,7 @@ class Questions
 				string Buffer;
 				getline(QuestionsFile, Buffer, ';');
 				Question[LinePos].Quotient = stoi(Buffer);
-				cout << Question[LinePos].Quotient;
+				/*cout << Question[LinePos].Quotient;*/
 				for(int i = 0; i < 4; i++)
 				{
 					getline(QuestionsFile, Question[LinePos].Answers[i], ';');
@@ -92,11 +106,3 @@ class Questions
 
 };
 
-
-void Parse()
-{
-	
-	
-
-
-}

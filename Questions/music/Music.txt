@@ -1,3 +1,5 @@
 What is the name of the group consisting of five musicians?;1;Quintet;Quartet;Octet;Athlete
 What musical sign raises a note by a semitone up?;2;Sharp;Flat;Natural;There is no such
 What is "New Age" in music?;4;Style;Group;Festival name;Musical instrument company
+Who wrote the opera "Carmen"?;6;J. Bizet;R. Wagner;G.Verdi;G. Puccini
+Who "steps on the ear" of a person deprived of a musical ear?;8;Bear;Hippopotamus;Elephant;Andrew

@@ -1,3 +1,5 @@
 How many bosses are there in Minecraft?;1;Three;Two;One;Four
 What profession of residents does not exist?;2;Fisherman;Leatherworker;Cook;Churchman
-How many mobs are summoned only by building a special totem?4;Two;One;Three;Four
+How many mobs are summoned only by building a special totem?;4;Two;One;Three;Four
+Which mob in Minecraft can teleport?;6;Enderman;Sheep;Gast;Blaze
+What happens if a pig is struck by lightning?;8;She will explode;She will die;Nothing will happen;She will turn into a zombie pig

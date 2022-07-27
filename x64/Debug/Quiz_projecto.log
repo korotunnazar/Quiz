@@ -1,4 +1,4 @@
 ﻿  Quiz_main.cpp
-F:\SHAGGG\Quiz_rep\Quiz_projecto\Quiz_main.cpp(45,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-F:\SHAGGG\Quiz_rep\Quiz_projecto\Game.h(28): warning C4715: 'GetQuestions': not all control paths return a value
-  Quiz_projecto.vcxproj -> F:\SHAGGG\Quiz_rep\Quiz_projecto\x64\Debug\Quiz_projecto.exe
+Q:\cpp\QUIZREPOS\Quiz_main.cpp(45,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+Q:\cpp\QUIZREPOS\Game.h(28): warning C4715: GetQuestions: значение возвращается не при всех путях выполнения
+  Quiz_projecto.vcxproj -> Q:\cpp\QUIZREPOS\x64\Debug\Quiz_projecto.exe
