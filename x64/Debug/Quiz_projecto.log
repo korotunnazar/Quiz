@@ -1,4 +1,4 @@
 ﻿  Quiz_main.cpp
-Q:\cpp\QUIZREPOS\Quiz_main.cpp(45,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
-Q:\cpp\QUIZREPOS\Game.h(28): warning C4715: GetQuestions: значение возвращается не при всех путях выполнения
+Q:\cpp\QUIZREPOS\Quiz_main.cpp(44,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+Q:\cpp\QUIZREPOS\Game.h(22): warning C4715: GetQuestions: значение возвращается не при всех путях выполнения
   Quiz_projecto.vcxproj -> Q:\cpp\QUIZREPOS\x64\Debug\Quiz_projecto.exe

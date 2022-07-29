@@ -1,11 +1,5 @@
-#include <iostream> // cin && cout								| input output
-#include <string> // string										| storing text
+#include "Includes.h"
 #include <unordered_map> // hash<string>hasher;					| hashing Password
-#include <fstream> //ifstream && ofstream && open() && close()  | file operations
-#include <sstream> //stringstream								| used for file operations too
-
-using namespace std;
-
 
 //inprogram db
 struct			LocDb
@@ -16,19 +10,6 @@ struct			LocDb
 
 namespace ForFile
 {
-	//"CountLines()" Function called for getting size for structure LocDb returns(Size)
-	int				CountLines(string fname)
-	{
-		ifstream	file;
-		int			_SizeOfDb = 0;
-		string		c = "";
-		file.open("Users.csv");
-		while (getline(file, c))
-		{
-			_SizeOfDb++;
-		}
-		return _SizeOfDb;
-	}
 
 	//"GetFromFile()" called for filling structure "LocDb"
 	void			GetFromFile(LocDb*& DB, int& _SizeOfDb)

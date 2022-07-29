@@ -1,22 +1,4 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
-
-using namespace std;
-
-int				CountLines(string fname) // to count all lines of questions
-{
-	ifstream	file; // read stream
-	int			_SizeOfDb = 0; // counter of questions
-	string		c = ""; // addition to count lines
-	file.open(fname); // open file in read mode
-	while (getline(file, c)) // count questions
-	{
-		_SizeOfDb++; // increment
-	}
-	return _SizeOfDb; // return how many questions
-}
+#include "Includes.h"
 
 class Questions
 {
@@ -29,6 +11,9 @@ class Questions
 		// getter for question
 		void GetQuestion(Questions* Question, int Pos) 
 		{
+		/*	stringstream linestream(Question[Pos].Question);
+			string Question;
+			linestream << Question;*/
 			cout << Question[Pos].Question << "\n";
 		}
 		// getter for answers

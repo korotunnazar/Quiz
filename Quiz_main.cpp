@@ -1,4 +1,3 @@
-#include <vector>
 #include "UserAuthorize.h"
 #include "Game.h"
 #include "IntegrityCheck.h"
@@ -45,7 +44,7 @@ void main(void)
 {
 	if (CheckFiles())
 	{
-		cout << "Welc4m to the c4m zone\n";
+		cout << "Welcome to Quiz Game\n";
 		string Login;
 		bool Logged;
 		MenuAuthorize(Login, Logged);

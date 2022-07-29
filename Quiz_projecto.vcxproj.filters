@@ -32,6 +32,12 @@
     <ClInclude Include="IntegrityCheck.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tournament.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Users.csv">

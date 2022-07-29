@@ -23,8 +23,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Includes.h" />
     <ClInclude Include="IntegrityCheck.h" />
     <ClInclude Include="Parsing.h" />
+    <ClInclude Include="Tournament.h" />
     <ClInclude Include="UserAuthorize.h" />
   </ItemGroup>
   <ItemGroup>
